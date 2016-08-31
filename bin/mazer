@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require_relative '../lib/maze_file_reader'
+require_relative '../lib/maze_solver'
+
+def main(filename)
+  file_reader = MazeFileReader.new
+  maze = file_reader.read(filename)
+  solver = MazeSolver.new(maze)
+  solver.solve
+  solver.print
+end
+
+if ARGV.length == 1
+  main(ARGV.first)
+else
+  puts "Usage: #{$PROGRAM_NAME} filename"
+  puts "Example: #{$PROGRAM_NAME} ../data/maze.txt\n"
+end

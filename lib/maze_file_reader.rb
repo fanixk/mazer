@@ -6,6 +6,7 @@ class MazeFileReader
     @maze = []
   end
 
+  # read file and validate it
   def read(filename)
     @maze = File.open(filename, 'r').readlines
     @maze.each(&:strip!)

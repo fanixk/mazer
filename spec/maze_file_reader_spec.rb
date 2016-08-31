@@ -1,8 +1,9 @@
-require 'rspec'
+require 'spec_helper'
 require_relative '../lib/maze_file_reader.rb'
+require_relative '../lib/maze_solver.rb'
 
 describe MazeFileReader do
-  let(:filename) { '../data/maze.txt' }
+  let(:filename) { 'data/maze.txt' }
   subject(:file_reader) { MazeFileReader.new }
 
   it { is_expected.to respond_to(:maze) }
@@ -22,8 +23,8 @@ describe MazeFileReader do
   end
 
   context "validation" do
-    subject(:maze_size) { MazeFileReader.new.read('../data/maze_size_error.txt') }
-    subject(:maze_sg) { MazeFileReader.new.read('../data/maze_sg_error.txt') }
+    subject(:maze_size) { MazeFileReader.new.read('data/maze_size_error.txt') }
+    subject(:maze_sg) { MazeFileReader.new.read('data/maze_sg_error.txt') }
 
     it "raises error when file lines are not same length" do
       expect { maze_size }.to raise_error(RuntimeError, 'Wrong line size.')
