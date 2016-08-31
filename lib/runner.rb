@@ -1,9 +1,9 @@
-require_relative 'maze'
+require_relative 'maze_file_reader'
 require_relative 'maze_solver'
 
 
-maze = Maze.new
-arr = maze.read_from_file('../data/maze.txt')
-solver = MazeSolver.new(arr)
-solver.parse_maze
+file_reader = MazeFileReader.new
+maze = file_reader.read('../data/maze.txt')
+solver = MazeSolver.new(maze)
+solver.solve
 # puts arr
