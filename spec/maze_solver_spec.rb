@@ -28,7 +28,7 @@ describe MazeSolver do
   end
 
   context "#solve" do
-    it "should print the results" do
+    it "should return the solution path as an array" do
       expect(maze_solver.solve).to be_an_instance_of(Array)
     end
 
