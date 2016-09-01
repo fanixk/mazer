@@ -80,7 +80,8 @@ class MazeSolver
     reset_visit_state
 
     # print solotion path
-    puts "\nThe solution is: "
+    puts "Solved in #{@path.size} moves."
+    puts "The solution is: "
     puts @path.inspect
     puts
 
@@ -140,7 +141,6 @@ class MazeSolver
     def is_inbounds?(x, y)
       true unless y > @maze.max.size-1 or y < 0 or x > @maze.size-1 or x < 0
     end
-
 
     # checks if x, y is a valid pathway to be visited next
     def is_pathway?(x, y)
